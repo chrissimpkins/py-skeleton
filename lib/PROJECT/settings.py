@@ -25,4 +25,4 @@ HELP = """
 # Version String
 # ------------------------------------------------------------------------------
 
-VERSION = "{{PROJECT}} " + major_version + "." + minor_version + "." + patch_version
+VERSION = "{{PROJECT}} v" + major_version + "." + minor_version + "." + patch_version
