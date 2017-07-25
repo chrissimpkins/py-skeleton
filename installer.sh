@@ -14,7 +14,6 @@ echo " "
 echo "Preparing project files..."
 mv pyapp-master/* .
 mv pyapp-master/.gitignore ./.gitignore
-mv pyapp-master/.landscape.yml ./.landscape.yml
 mv pyapp-master/.travis.yml ./.travis.yml
 
 echo " "
