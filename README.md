@@ -1,7 +1,6 @@
 ## {{PROJECT}}
 
-### Install
+### How to Use the Project Template Files
 
-```
-curl https://raw.githubusercontent.com/chrissimpkins/pyapp/master/installer.sh | bash
-```
+Click the `Use This Template` button above to copy the entire repository to a new Github repository.
+
