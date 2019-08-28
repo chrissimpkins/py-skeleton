@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from {{ PROJECT }} import __version__
+
 def main():  # pragma: no cover
     run(sys.argv[1:])
 
