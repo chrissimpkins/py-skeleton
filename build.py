@@ -71,3 +71,4 @@ with open(README_FILE, "w") as fw:
     print("[*] Updated README.md file with project name")
 
 print("[*] Build complete!")
+print("OK to remove the build.py and project.toml files")
