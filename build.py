@@ -64,7 +64,7 @@ for filepath in TEMPLATE_FILES:
     print("[*] Built template: {}".format(filepath))
 
 # update library path name
-os.rename(TEMPLATE_DIRS, settings["project"])
+os.rename(TEMPLATE_DIRS, os.path.join("lib", settings["project"]))
 print("[*] Changed library directory name to: '{}'".format(settings["project"]))
 
 # update README.md text
