@@ -44,6 +44,8 @@ assert "url" in settings and settings["url"] != ""
 assert "min_python" in settings and settings["min_python"] != ""
 assert "license" in settings and settings["license"] != ""
 
+# Introduction
+print("Starting '{}' build...".format(settings["project"]))
 # replace template strings in files with user settings
 for filepath in TEMPLATE_FILES:
     with open(filepath, "r") as fr:
