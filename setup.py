@@ -5,12 +5,12 @@ from setuptools import setup, find_packages
 
 # Package meta-data.
 NAME = "{{ PROJECT }}"
-DESCRIPTION = ""
-LICENSE = "Apache License v2.0"
+DESCRIPTION = "{{ DESCRIPTION }}"
+LICENSE = "{{ LICENSE }}"
 URL = "{{ URL }}"
 EMAIL = "{{ EMAIL }}"
 AUTHOR = "{{ AUTHOR }}"
-REQUIRES_PYTHON = ">=3.6.0"
+REQUIRES_PYTHON = ">={{ PYTHON }}"
 
 INSTALL_REQUIRES = [""]
 # Optional packages
