@@ -3,11 +3,13 @@
 
 from {{ PROJECT }} import __version__
 
+
 def main():  # pragma: no cover
     run(sys.argv[1:])
 
+
 def run(argv):
-	# ===========================================================
+    # ===========================================================
     # argparse command line argument definitions
     # ===========================================================
     parser = argparse.ArgumentParser(
