@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import sys
+import argparse
+
 from {{ PROJECT }} import __version__
 
 
