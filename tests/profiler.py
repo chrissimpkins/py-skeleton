@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import cProfile, pstats, StringIO
+import cProfile
+import pstats
+from io import StringIO
 
 
 def profile():
@@ -23,17 +25,16 @@ def profile():
     # BEGIN profiled code block
     # ------------------------------------------------------------------------------
 
-
     # ------------------------------------------------------------------------------
     # END profiled code block
     # ------------------------------------------------------------------------------
     pr.disable()
-    s = StringIO.StringIO()
-    sortby = 'cumulative'
+    s = StringIO()
+    sortby = "cumulative"
     ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
     ps.strip_dirs().sort_stats("time").print_stats()
     print(s.getvalue())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     profile()
