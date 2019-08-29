@@ -67,7 +67,7 @@ print("[*] Changed library directory name to: '{}'".format(settings["project"]))
 
 # update README.md text
 with open(README_FILE, "w") as fw:
-    fw.write("##{}{}".format(settings["project"], os.linesep))
+    fw.write("## {}{}".format(settings["project"], os.linesep))
     print("[*] Updated README.md file with project name")
 
 print("[*] Build complete!")
