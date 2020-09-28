@@ -83,7 +83,7 @@ try:
         filename = os.path.basename(filepath)
         newpath = os.path.join(".github", "workflows", filename)
         shutil.move(filepath, newpath)
-        print(f"[*] moved {newpath} GitHub Action configuration to production dir")
+        print(f"[*] moved {filename} GitHub Action configuration to production dir")
 except Exception as e:
     sys.stderr.write(f"File move error. {e}{os.linesep}")
     sys.exit(1)
