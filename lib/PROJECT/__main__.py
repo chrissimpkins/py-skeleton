@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import sys
 import argparse
+import sys
 
 from {{ PROJECT }} import __version__
 
