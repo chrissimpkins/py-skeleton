@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import glob
 import os
+import shutil
 import sys
 
 import toml
@@ -12,6 +14,9 @@ TEMPLATE_FILES = (
     "Makefile",
     ".travis.yml",
     os.path.join("lib", "PROJECT", "__main__.py"),
+    os.path.join("github-IN", "py-coverage.yml"),
+    os.path.join("github-IN", "py-lint.yml"),
+    os.path.join("github-IN", "py-typecheck.yml"),
 )
 
 README_FILE = "README.md"
@@ -70,6 +75,17 @@ print("[*] Changed library directory name to: '{}'".format(settings["project"]))
 with open(README_FILE, "w") as fw:
     fw.write("## {}{}".format(settings["project"], os.linesep))
     print("[*] Updated README.md file with project name")
+
+# move GH Action configuration files to
+# appropriate dir path for execution on CI
+try:
+    for filepath in glob.glob("github-IN/*.yml"):
+        filename = os.path.basename(filepath)
+        newpath = os.path.join(".github", "workflows", filename)
+        shutil.move(filepath, newpath)
+except Exception as e:
+    sys.stderr.write(f"File move error. {e}")
+    sys.exit(1)
 
 print("[*] Build complete!")
 print("OK to remove the build.py and project.toml files")
