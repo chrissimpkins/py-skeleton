@@ -31,7 +31,7 @@ try:
         exec(v.read(), main_namespace)
 except IOError as version_e:
     sys.stderr.write(
-        "[ERROR] setup.py: Failed to read the version data for the version definition: {}".format(
+        "[ERROR] setup.py: Failed to read data for the version definition: {}".format(
             str(version_e)
         )
     )
@@ -43,7 +43,7 @@ try:
         readme = f.read()
 except IOError as readme_e:
     sys.stderr.write(
-        "[ERROR] setup.py: Failed to read the README.md file for the long description definition: {}".format(
+        "[ERROR] setup.py: Failed to read README.md for the long description: {}".format(
             str(readme_e)
         )
     )
