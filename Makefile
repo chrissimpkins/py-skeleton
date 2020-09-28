@@ -1,7 +1,7 @@
 all: install
 
 black:
-	black lib/{{ PROJECT }}/*.py
+	black -l 90 lib/{{ PROJECT }}/*.py
 
 clean:
 	- rm dist/*.whl dist/*.tar.gz dist/*.zip
@@ -29,7 +29,7 @@ test-coverage:
 #	coverage html
 
 test-lint:
-	flake8 --ignore=E501,W50 lib/{{ PROJECT }}
+	flake8 --ignore=W50 lib/{{ PROJECT }}
 
 test-type-check:
 	pytype lib/{{ PROJECT }}
