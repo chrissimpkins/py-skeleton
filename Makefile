@@ -32,7 +32,7 @@ test-lint:
 	flake8 --ignore=W50 lib/{{ PROJECT }}
 
 test-type-check:
-	pytype lib/{{ PROJECT }}
+	mypy lib/{{ PROJECT }}
 
 test-unit:
 	tox
