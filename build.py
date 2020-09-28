@@ -34,9 +34,8 @@ try:
         settings = toml.load(f)
 except Exception as e:
     sys.stderr.write(
-        "[ERROR] Failed to read the project.toml settings file with error: {}{}".format(
-            str(e), os.linesep
-        )
+        f"[ERROR] Failed to read the project.toml settings file with "
+        f"error: {str(e)}{os.linesep}"
     )
     sys.exit(1)
 
@@ -49,7 +48,8 @@ assert "min_python" in settings and settings["min_python"] != ""
 assert "license" in settings and settings["license"] != ""
 
 # Introduction
-print("Starting '{}' build...".format(settings["project"]))
+project_name = settings["project"]
+print(f"Starting '{project_name}' build...")
 # replace template strings in files with user settings
 for filepath in TEMPLATE_FILES:
     with open(filepath, "r") as fr:
@@ -65,16 +65,16 @@ for filepath in TEMPLATE_FILES:
 
     with open(filepath, "w") as fw:
         fw.write(file_text)
-    print("[*] Built template: {}".format(filepath))
+    print(f"[*] Built template: {filepath}...")
 
 # update library path name
 os.rename(TEMPLATE_DIRS, os.path.join("lib", settings["project"]))
-print("[*] Changed library directory name to: '{}'".format(settings["project"]))
+print(f"[*] Changed library directory name to: '{project_name}'...")
 
 # update README.md text
 with open(README_FILE, "w") as fw:
-    fw.write("## {}{}".format(settings["project"], os.linesep))
-    print("[*] Updated README.md file with project name")
+    fw.write(f"## {project_name}{os.linesep}")
+    print(f"[*] Updated README.md file with '{project_name}' project name...")
 
 # move GH Action configuration files to
 # appropriate dir path for execution on CI
@@ -83,9 +83,14 @@ try:
         filename = os.path.basename(filepath)
         newpath = os.path.join(".github", "workflows", filename)
         shutil.move(filepath, newpath)
+        print(f"[*] moved {newpath} GitHub Action configuration to production dir")
 except Exception as e:
-    sys.stderr.write(f"File move error. {e}")
+    sys.stderr.write(f"File move error. {e}{os.linesep}")
     sys.exit(1)
+
+# clean up GH Action template in directory
+shutil.rmtree("github-IN")
+print("[*] Cleaned up temp in paths...")
 
 print("[*] Build complete!")
 print("OK to remove the build.py and project.toml files")
